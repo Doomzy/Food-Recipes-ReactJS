@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+#root {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+body {
+  background-color: theme("colors.bg_color");
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.searchBar {
+  margin-top: 3.5rem;
+  display: flex;
+  border: 4px theme("colors.secondary") solid;
+}
+
+#SearchInput {
+  background-color: transparent;
+  height: 50px;
+}
+
+.section {
+  margin-top: 10rem;
+}
+
+ol li {
+  margin-bottom: 0.5rem;
+}
+ol li::after {
+  content: ".";
+}
+
+ol li .numbers {
+  color: black;
+  font-weight: bold;
+  background: theme("colors.primary");
+  text-align: center;
+  width: 2.3rem;
+  border-radius: 25%;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.loading-logo {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
