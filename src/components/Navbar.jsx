@@ -11,6 +11,7 @@ function Navbar() {
           Categories
         </Link>
         <Link
+          reloadDocument={true}
           to="recipes/random"
           className="hover:scale-105 ease-in text-primary"
         >
