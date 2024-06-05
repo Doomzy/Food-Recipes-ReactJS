@@ -7,8 +7,8 @@ function getStoredRecipe() {
   const recipe = JSON.parse(localStorage.getItem("Day's_Recipe"));
 
   if (recipe) {
-    const timeDifference = Date.now() - recipe.timestamp;
-    if (timeDifference > 24 * 60 * 60 * 1000) return null;
+    const todaysDate = new Date().toDateString();
+    if (recipe.timestamp < todaysDate) return null;
     return recipe;
   }
   return null;
@@ -24,7 +24,10 @@ function DaysRecipe() {
         storedRecipe = res["meals"][0];
         localStorage.setItem(
           "Day's_Recipe",
-          JSON.stringify({ ...storedRecipe, timestamp: Date.now() })
+          JSON.stringify({
+            ...storedRecipe,
+            timestamp: new Date().toDateString(),
+          })
         );
       }),
     enabled: !storedRecipe,

@@ -21,6 +21,8 @@ function CategoryRecipes() {
     }
   }, [data, error, isLoading]);
 
+  const randomRecipeId = Math.floor(Math.random() * (catRecipes.length - 4));
+
   if (error)
     return (
       <p className=" mt-10 text-center text-medium">Something Went wrong</p>
@@ -41,7 +43,7 @@ function CategoryRecipes() {
         </Link>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 mt-14 gap-5">
-        {catRecipes.slice(0, 4).map((item) => {
+        {catRecipes.slice(randomRecipeId, randomRecipeId + 4).map((item) => {
           return (
             <RecipeCard
               key={item.idMeal}
