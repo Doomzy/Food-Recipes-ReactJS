@@ -18,8 +18,8 @@ This is my first **_React.js_** project, I made it as a practise and used a publ
 - Tanstack React-Query ^5.40.0
    ```
 ### &nbsp;&nbsp; Resources:
-* For UI I used [Design](https://www.google.com) as a reference and added a little bit more to it.
-* For the backed and the date fetching I used [API](https://www.google.com).
+* For UI I used [Design](https://www.figma.com/community/file/1311568960694171459) as a reference and added a little bit more to it.
+* For the backed and the date fetching I used [API](https://www.themealdb.com/api.php).
 
 ## Features
 
