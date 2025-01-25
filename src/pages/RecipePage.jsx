@@ -43,6 +43,10 @@ function RecipePage() {
 
   if (isLoading) return <LogoSpinner />;
 
+  if (!data || !data["meals"] || data["meals"].length === 0) {
+    return <p className=" mt-10 text-center text-medium">No recipe found</p>;
+  }
+
   const { recipeData, instructions, ingredients } = cleanRecipe(
     data["meals"][0]
   );

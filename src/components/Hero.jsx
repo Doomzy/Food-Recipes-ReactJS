@@ -3,8 +3,8 @@ import { SearchBar } from "./";
 
 function Hero() {
   return (
-    <div className="flex flex-row-reverse justify-center gap-40">
-      <img className=" hidden xl:block" src={hero} alt="Hero" />
+    <div className="flex flex-row-reverse justify-center gap-10">
+      <img className=" hidden xl:block max-w-[38rem]" src={hero} alt="Hero" />
 
       <div className=" pt-12">
         <div className=" text-4xl md:text-hero font-extrabold leading-tight">
