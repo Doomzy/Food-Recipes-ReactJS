@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button, LogoSpinner } from "./";
 import { useQuery } from "@tanstack/react-query";
-import { fetchRandomRecipe } from "../utils/queries";
+import { fetchRecipeDetails } from "../utils/queries";
 
 function getStoredRecipe() {
   const recipe = JSON.parse(localStorage.getItem("Day's_Recipe"));
@@ -20,7 +20,7 @@ function DaysRecipe() {
   const { error, isLoading } = useQuery({
     queryKey: ["Day's_Recipe", storedRecipe],
     queryFn: () =>
-      fetchRandomRecipe().then((res) => {
+      fetchRecipeDetails("random").then((res) => {
         storedRecipe = res["meals"][0];
         localStorage.setItem(
           "Day's_Recipe",

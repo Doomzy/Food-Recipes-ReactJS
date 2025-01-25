@@ -28,14 +28,8 @@ const fetchListOfObjects = async (type) => {
 };
 
 const fetchRecipeDetails = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/lookup.php?i=${id}`, {
-    method: "GET",
-  });
-  return response.json();
-};
-
-const fetchRandomRecipe = async () => {
-  const response = await fetch(`${API_BASE_URL}/random.php`, {
+  const query = id == "random" ? "/random.php" : `/lookup.php?i=${id}`;
+  const response = await fetch(API_BASE_URL + query, {
     method: "GET",
   });
   return response.json();
@@ -46,5 +40,4 @@ export {
   fetchFilteredRecipes,
   fetchListOfObjects,
   fetchRecipeDetails,
-  fetchRandomRecipe,
 };

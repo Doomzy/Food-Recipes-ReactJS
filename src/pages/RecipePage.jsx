@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { fetchRecipeDetails, fetchRandomRecipe } from "../utils/queries";
+import { fetchRecipeDetails } from "../utils/queries";
 import { LogoSpinner, RecipeInfoList } from "../components";
 import { Link } from "react-router-dom";
 
@@ -32,8 +32,7 @@ function RecipePage() {
 
   const { data, error, isLoading } = useQuery({
     queryKey: ["recipeData", recipeId],
-    queryFn: () =>
-      recipeId == "random" ? fetchRandomRecipe() : fetchRecipeDetails(recipeId),
+    queryFn: () => fetchRecipeDetails(recipeId),
   });
 
   if (error)
@@ -42,10 +41,6 @@ function RecipePage() {
     );
 
   if (isLoading) return <LogoSpinner />;
-
-  if (!data || !data["meals"] || data["meals"].length === 0) {
-    return <p className=" mt-10 text-center text-medium">No recipe found</p>;
-  }
 
   const { recipeData, instructions, ingredients } = cleanRecipe(
     data["meals"][0]
