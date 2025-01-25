@@ -38,6 +38,7 @@ function App() {
             element={<RecipesPage filter="search" />}
           ></Route>
 
+          <Route path="random" element={<RecipePage />}></Route>
           <Route path=":recipeId" element={<RecipePage />}></Route>
         </Route>
       </Routes>
