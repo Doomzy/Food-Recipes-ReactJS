@@ -40,7 +40,7 @@ function RecipePage() {
       <p className=" mt-10 text-center text-medium">Something Went wrong</p>
     );
 
-  if (isLoading) return <LogoSpinner />;
+  if (isLoading || !data) return <LogoSpinner />;
 
   const { recipeData, instructions, ingredients } = cleanRecipe(
     data["meals"][0]
