@@ -28,7 +28,7 @@ const fetchListOfObjects = async (type) => {
 };
 
 const fetchRecipeDetails = async (id) => {
-  const query = id == undefined ? "/random.php" : `/lookup.php?i=${id}`;
+  const query = id == "random" ? "/random.php" : `/lookup.php?i=${id}`;
   const response = await fetch(API_BASE_URL + query, {
     method: "GET",
   });

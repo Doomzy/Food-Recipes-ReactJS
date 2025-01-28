@@ -17,7 +17,7 @@ function getStoredRecipe() {
 function DaysRecipe() {
   let storedRecipe = getStoredRecipe();
 
-  const { data, error, isLoading } = useQuery({
+  const { error, isLoading } = useQuery({
     queryKey: ["Day's_Recipe", storedRecipe],
     queryFn: () =>
       fetchRecipeDetails("random").then((res) => {
@@ -38,7 +38,7 @@ function DaysRecipe() {
       <p className=" mt-10 text-center text-medium">Something Went wrong</p>
     );
 
-  if (isLoading || !data) return <LogoSpinner />;
+  if (isLoading || !storedRecipe) return <LogoSpinner />;
 
   return (
     <div className="section">
